@@ -3,12 +3,28 @@
 {% block content %}
 <form style="max-width: 700px; margin-left: auto; margin-right: auto; margin-top: 50px;">
     <div class="form-group">
-      <label for="formGroupExampleInput">Example label</label>
+      <label for="formGroupExampleInput">Podaj nazwę wydatku</label>
       <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
     </div>
     <div class="form-group">
-      <label for="formGroupExampleInput2">Another label</label>
+      <label for="formGroupExampleInput2">Podaj koszt?</label>
       <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
     </div>
   </form>
+
+
+  <table>
+    {% for expenditure in expenditures %}
+    <tr>
+      {% for value in expenditure %}
+      <td>{{value}}</td>
+      {% endfor %}
+      <td>zl</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  
+
+
 {% endblock %}

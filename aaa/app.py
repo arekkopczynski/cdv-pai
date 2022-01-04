@@ -2,9 +2,17 @@ from flask import Flask, render_template, url_for, request
 
 
 app = Flask(__name__)
+
+data = (
+        ('samochod', 1230),
+        ('mieszkanie', 1990),
+        ('jedzenie', 600),
+    )
+
 @app.route('/')
-def index():
-    return render_template('index_base.html')
+def index_base():
+    return render_template('index_base.html', expenditures=data)
+
 
 
 @app.route('/indexx', methods=['GET','POST'])
@@ -21,3 +29,6 @@ def indexx():
             drugi = request.form['drugi']
 
         return render_template('index_result.html', kasa=pierwszy_input, drugie=drugi)
+
+
+

@@ -1,19 +1,47 @@
 {% extends "base.html" %}
 {% block title %}Home Page{% endblock %}
 {% block content %}
-<form style="max-width: 700px; margin-left: auto; margin-right: auto; margin-top: 50px;">
-    <div class="form-group">
-      <label for="formGroupExampleInput">Podaj nazwę wydatku</label>
-      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
-    </div>
-    <div class="form-group">
-      <label for="formGroupExampleInput2">Podaj koszt?</label>
-      <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
-    </div>
-  </form>
+<form method="POST" style="max-width: 700px; margin-left: auto; margin-right: auto; margin-top: 50px;">
+  <div class="form-group">
+    <label for="formGroupExampleInput">Dodaj pieniądze do portfela</label>
+    <input type="number" class="form-control" id="formGroupExampleInput" name="moneyy" value="money">
+  </div>
+  <div>
+    <input style="margin: 15px auto 25px 35px" value="zatwierdź" type="submit">
+  </div>
+</form>
+
+<form method="POST" style="max-width: 700px; margin-left: auto; margin-right: auto; margin-top: 50px;">
+  <div class="form-group">
+    <label for="formGroupExampleInput2">Podaj nazwę wydatku</label>
+    <input type="number" class="form-control" id="formGroupExampleInput2" name="drugi">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">Podaj koszt</label>
+    <input type="number" class="form-control" id="formGroupExampleInput2" name="trzeci">
+  </div>
+  <div>
+    <input style="margin: 15px auto 25px 35px" value="zatwierdź" type="submit">
+  </div>
+</form>
+
+<div class="d-flex" style=" max-width: 400px; margin: 30px auto 20px auto;">
+  <p style="margin: auto; font-size: 30px;">Masz do dyspozycji:</p>
+  <p style="margin: auto; font-weight: 500; font-size: 30px;">{{money}}</p>
+  <p style="margin: auto; font-size: 30px;">zł</p>
+</div>
 
 
-  <table>
+
+<div style="max-width: 700px; margin-left: auto; margin-right: auto; margin-top: 20px;">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Wydatek</th>
+        <th scope="col">Kwota</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
     {% for expenditure in expenditures %}
     <tr>
       {% for value in expenditure %}
@@ -23,8 +51,8 @@
     </tr>
     {% endfor %}
   </table>
+</div>
 
-  
 
 
 {% endblock %}

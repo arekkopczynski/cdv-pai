@@ -17,6 +17,6 @@ front i po dodaniu wartosci aktualizują się odpowienie elementy
 
 co trzeba jeszcze zrobic:
 1. podłączyć z bazą danych
-2. po dodaniu nowego wydatku saldo portfela musi sie zmniejszyc
+2. po dodaniu nowego wydatku saldo portfela musi sie zmniejszyc (zrobilem)
 3. moze dac jakis warunek który sprawdza czy inputy nie są puste 
 4. dodac mozliwosc usuwania wydatkow

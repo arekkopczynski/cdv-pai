@@ -32,6 +32,7 @@ def my_money():
         expenditure = request.form['expenditure']
         cost = request.form['cost']
         data.append([expenditure, cost])
+        money -= int(cost)
         return render_template('index_base.html',expenditures=data, money=money)
         
     

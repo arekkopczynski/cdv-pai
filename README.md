@@ -1,13 +1,19 @@
 # cdv-pai
 
-odpalenie srodowiska 
+odpalenie srodowiska na windows
 1. wejsc w katalog aaa (trzeba zmienic nazwe przy okazji)
 2. .\venv\Scripts\activate
 3. potem flask run zeby odpalic server
 
 
+instalacja na linuxie
+1. virtualenv .venv
+2. pip install flask
 
-na linuxie
+instalacja na windows 
+1. python -m venv venv
+
+odpalenie na linuxie
 1. virtualenv .venv
 2. source .venv/bin/activate
 3. flask run

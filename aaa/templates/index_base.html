@@ -1,27 +1,27 @@
 {% extends "base.html" %}
-{% block title %}Home Page{% endblock %}
+{% block title %}Mój portfel{% endblock %}
 {% block content %}
 <form method="POST" style="max-width: 700px; margin-left: auto; margin-right: auto; margin-top: 50px;">
   <div class="form-group">
     <label for="formGroupExampleInput">Dodaj pieniądze do portfela</label>
-    <input type="number" class="form-control" id="formGroupExampleInput" name="moneyy" value="money">
+    <input type="number" class="form-control" id="formGroupExampleInput" name="money" value="money">
   </div>
   <div>
-    <input style="margin: 15px auto 25px 35px" value="zatwierdź" type="submit">
+    <input style="margin: 15px auto 25px 35px" value="Dodaj" type="submit" name="btn">
   </div>
-</form>
+<!-- </form>
 
-<form method="POST" style="max-width: 700px; margin-left: auto; margin-right: auto; margin-top: 50px;">
+<form method="POST" style="max-width: 700px; margin-left: auto; margin-right: auto; margin-top: 50px;"> -->
   <div class="form-group">
     <label for="formGroupExampleInput2">Podaj nazwę wydatku</label>
-    <input type="number" class="form-control" id="formGroupExampleInput2" name="drugi">
+    <input type="text" class="form-control" id="formGroupExampleInput2" name="expenditure" value="expenditure">
   </div>
   <div class="form-group">
     <label for="formGroupExampleInput2">Podaj koszt</label>
-    <input type="number" class="form-control" id="formGroupExampleInput2" name="trzeci">
+    <input type="number" class="form-control" id="formGroupExampleInput2" name="cost" value="cost">
   </div>
   <div>
-    <input style="margin: 15px auto 25px 35px" value="zatwierdź" type="submit">
+    <input style="margin: 15px auto 25px 35px" value="zatwierdź" type="submit" name="btn">
   </div>
 </form>
 

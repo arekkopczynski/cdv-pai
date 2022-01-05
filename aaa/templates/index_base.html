@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Mój portfel{% endblock %}
+{% block content %}
+<form method="POST" style="max-width: 700px; margin-left: auto; margin-right: auto; margin-top: 50px;">
+  <div class="form-group">
+    <label for="formGroupExampleInput">Dodaj pieniądze do portfela</label>
+    <input type="number" class="form-control" id="formGroupExampleInput" name="money" value="money">
+  </div>
+  <div>
+    <input style="margin: 15px auto 25px 35px" value="Dodaj" type="submit" name="btn">
+  </div>
+<!-- </form>
+
+<form method="POST" style="max-width: 700px; margin-left: auto; margin-right: auto; margin-top: 50px;"> -->
+  <div class="form-group">
+    <label for="formGroupExampleInput2">Podaj nazwę wydatku</label>
+    <input type="text" class="form-control" id="formGroupExampleInput2" name="expenditure" value="expenditure">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">Podaj koszt</label>
+    <input type="number" class="form-control" id="formGroupExampleInput2" name="cost" value="cost">
+  </div>
+  <div>
+    <input style="margin: 15px auto 25px 35px" value="zatwierdź" type="submit" name="btn">
+  </div>
+</form>
+
+<div class="d-flex" style=" max-width: 400px; margin: 30px auto 20px auto;">
+  <p style="margin: auto; font-size: 30px;">Masz do dyspozycji:</p>
+  <p style="margin: auto; font-weight: 500; font-size: 30px;">{{money}}</p>
+  <p style="margin: auto; font-size: 30px;">zł</p>
+</div>
+
+
+
+<div style="max-width: 700px; margin-left: auto; margin-right: auto; margin-top: 20px;">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Wydatek</th>
+        <th scope="col">Kwota</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    {% for expenditure in expenditures %}
+    <tr>
+      {% for value in expenditure %}
+      <td>{{value}}</td>
+      {% endfor %}
+      <td>zl</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+
+
+{% endblock %}

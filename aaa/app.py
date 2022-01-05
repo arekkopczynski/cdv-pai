@@ -3,13 +3,16 @@ from flask import Flask, render_template, url_for, request
 
 app = Flask(__name__)
 
+##tą zmienną będzie trzeba jakoś wpiąć do bazy danych
+##pewnie trzeba by zrobic tak ze jedna tablica to jeden nowy wiersz w tabeli
 data = [
         ['samochod', 1230],
         ['mieszkanie', 1990],
         ['jedzenie', 600],
 ]
 
-
+##tą zmienną będzie trzeba jakoś wpiąć do bazy danych
+##a to izi bo to tylko jedna wartość musi być przechowana 
 money = 3240 
 
 @app.route('/')

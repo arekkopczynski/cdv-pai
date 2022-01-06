@@ -13,8 +13,7 @@ class Expenses(db.Model):
     name = db.Column(db.String)
     value = db.Column(db.Integer)
 
-    def __init__(self, id, name, value):
-        self.id = id
+    def __init__(self, name, value):
         self.name = name
         self.value = value
 

@@ -29,3 +29,9 @@ co trzeba jeszcze zrobic:
 5. sprawdzenie czy nie ma za malo pieniedzy podczas dodawania wydaktu
 6. zablokowanie dodania ujemnych pieniedzy (zrobilem)
 7. ostrzezenia po odswiezeniu storny nie znikaja
+
+h2. Baza danych
+Aplikacja wykorzystuje bazę danych SQLite. Plik bazy danych jest zapisywany w katalogu application/app/db.
+
+Tabele:
+- Expenses - zapisywanie bieżących wydatków

@@ -1,30 +1,30 @@
 # cdv-pai
 
-odpalenie srodowiska na windows
-1. wejsc w katalog aaa (trzeba zmienic nazwe przy okazji)
-2. .\venv\Scripts\activate
-3. potem flask run zeby odpalic server
-
-
 instalacja na linuxie
 1. virtualenv .venv
-2. pip install flask
+2. pip install flask Flask-SQLAlchemy
 
-instalacja na windows 
-1. python -m venv venv
+instalacja na windows
+1. Wejść do katalogu aaa
+2. python -m venv venv
+3. pip install flask Flask-SQLAlchemy
 
 odpalenie na linuxie
 1. virtualenv .venv
 2. source .venv/bin/activate
 3. flask run
 
-aktualny status jest taki, że jest prosty 
+odpalenie srodowiska na windows
+1. wejsc w katalog aaa (trzeba zmienic nazwe przy okazji)
+2. .\venv\Scripts\activate
+3. potem flask run zeby odpalic server
+aktualny status jest taki, że jest prosty
 front i po dodaniu wartosci aktualizują się odpowienie elementy
 
 co trzeba jeszcze zrobic:
 1. podłączyć z bazą danych
 2. po dodaniu nowego wydatku saldo portfela musi sie zmniejszyc (zrobilem)
-3. moze dac jakis warunek który sprawdza czy inputy nie są puste 
+3. moze dac jakis warunek który sprawdza czy inputy nie są puste
 4. dodac mozliwosc usuwania wydatkow
 5. sprawdzenie czy nie ma za malo pieniedzy podczas dodawania wydaktu
 6. zablokowanie dodania ujemnych pieniedzy (zrobilem)

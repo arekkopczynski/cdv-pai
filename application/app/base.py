@@ -17,4 +17,21 @@ class Expenses(db.Model):
         self.name = name
         self.value = value
 
+class Incomes(db.Model):
+
+    __tablename__ = 'incomes'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
+    value = db.Column(db.Integer)
+
+    def __init__(self, name, value):
+        self.name = name
+        self.value = value
+
 db.create_all()
+
+def total_funds():
+    funds = Incomes.query.all()
+    total_funds = (sum([fund.value for fund in funds]))
+    return total_funds

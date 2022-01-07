@@ -44,3 +44,4 @@ Aplikacja wykorzystuje bazę danych SQLite. Plik bazy danych jest zapisywany w k
 
 Tabele:
 - Expenses - zapisywanie bieżących wydatków
+- Incomes - zapisywanie dochodów

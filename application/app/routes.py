@@ -2,7 +2,7 @@ from flask import Flask, render_template, url_for, request
 from app import app, base
 
 warning = "Brak wystarczających środków do dodania wydatku"
-warning2 = "Nie można dodać ujemnych pieniędzy?"
+warning2 = "liczba nie powinna być ujemna"
 emptyWarning = " "
 
 @app.route('/')
@@ -11,11 +11,12 @@ def index_base():
     #Get data from Database
     data = []
     for x in base.Expenses.query.all():
-        data.append([x.name, x.value])
+        expenditureDict = dict(id=x.id, name=x.name, value=x.value)
+        data.append(expenditureDict)
 
     return render_template('index_base.html', expenditures=data, money=base.total_funds(), warning=emptyWarning)
 
-money=base.total_funds()
+# money=base.total_funds()
 @app.route('/', methods=['POST'])
 def my_money():
     global money
@@ -23,7 +24,8 @@ def my_money():
     #Get data from Database
     data = []
     for x in base.Expenses.query.all():
-        data.append([x.name, x.value])
+        expenditureDict = dict(id=x.id, name=x.name, value=x.value)
+        data.append(expenditureDict)
 
     if request.form['btn'] == 'Dodaj':
         moneey = request.form['money']
@@ -64,7 +66,33 @@ def my_money():
             #Get data from Database
             data = []
             for x in base.Expenses.query.all():
-                data.append([x.name, x.value])
+                expenditureDict = dict(id=x.id, name=x.name, value=x.value)
+                data.append(expenditureDict)
 
             money -= int(cost)
             return render_template('index_base.html',expenditures=data, money=money)
+
+# @app.route('/delete/<int:id>', methods=['POST'])
+# def remove_row(id):
+#     tak = Expenses.query.get_or404(id)
+#     try:
+#         db.session.delete(tak)
+#         db.session.commit()
+#         return render_template('index_base.html',expenditures=data, money=money)
+#     except:
+#         flask("asdsa")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

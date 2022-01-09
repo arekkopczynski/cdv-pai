@@ -46,9 +46,13 @@
     {% for expenditure in expenditures %}
     <tr>
       {% for value in expenditure %}
+      {% if loop.index%2==0 %}
+      <td>{{value | string + " zł"}}</td>
+      {% else %}
       <td>{{value}}</td>
+      {% endif %}
       {% endfor %}
-      <td>zl</td>
+      <td><button>x</button></td>
     </tr>
     {% endfor %}
   </table>

@@ -15,7 +15,7 @@ def index_base():
 
     return render_template('index_base.html', expenditures=data, money=base.total_funds(), warning=emptyWarning)
 
-
+money=base.total_funds()
 @app.route('/', methods=['POST'])
 def my_money():
     global money

@@ -32,6 +32,11 @@ class Incomes(db.Model):
 db.create_all()
 
 def total_funds():
-    funds = Incomes.query.all()
-    total_funds = (sum([fund.value for fund in funds]))
+    incomes = Incomes.query.all()
+    expenses = Expenses.query.all();
+
+    total_incomes = (sum([fund.value for fund in incomes]))
+    total_expenses = (sum([fund.value for fund in expenses]))
+
+    total_funds = total_incomes-total_expenses
     return total_funds

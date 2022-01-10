@@ -46,14 +46,15 @@ def my_money():
             base.db.session.commit()
             base.db.session.remove()
 
-            money = base.total_funds()
-            return render_template('index_base.html',expenditures=data, money=money)
+            return render_template('index_base.html',expenditures=data, money=base.total_funds())
     # Adding expenses
     elif request.form['btn'] == 'zatwierdź':
         expenditure = request.form['expenditure']
         cost = request.form['cost']
-        if(int(cost)>int(money)):
-            return render_template('index_base.html',expenditures=data, money=money, warning=warning)
+
+        current_money = base.total_funds()
+        if(int(cost)>int(current_money)):
+            return render_template('index_base.html',expenditures=data, money=current_money, warning=warning)
 
         # Adding normal expenses
         else:
@@ -69,8 +70,8 @@ def my_money():
                 expenditureDict = dict(id=x.id, name=x.name, value=x.value)
                 data.append(expenditureDict)
 
-            money -= int(cost)
-            return render_template('index_base.html',expenditures=data, money=money)
+            current_money -= int(cost)
+            return render_template('index_base.html',expenditures=data, money=current_money)
 
 @app.route('/<int:id>', methods=['POST', 'GET'])
 def remove(id):

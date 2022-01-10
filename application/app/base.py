@@ -49,7 +49,7 @@ def delete_expense(_id):
 
 def get_expanses():
     data = []
-    for x in base.Expenses.query.all():
+    for x in Expenses.query.all():
         expenditureDict = dict(id=x.id, name=x.name, value=x.value)
         data.append(expenditureDict)
     return data

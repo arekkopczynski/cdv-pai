@@ -42,7 +42,7 @@ def my_money():
 
         current_money = base.total_funds()
         if(expenditure == '' or cost == ''):
-            return render_template('index_base.html',expenditures=data, money=current_money, warning=warning3)
+            return render_template('index_base.html',expenditures=base.get_expanses(), money=current_money, warning=warning3)
 
         current_money = base.total_funds()
         if(int(cost)>int(current_money)):

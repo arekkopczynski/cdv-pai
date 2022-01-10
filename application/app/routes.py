@@ -3,6 +3,7 @@ from app import app, base
 
 warning = "Brak wystarczających środków do dodania wydatku"
 warning2 = "liczba nie powinna być ujemna"
+warning3 = "uzupełnij wszystkie pola"
 emptyWarning = " "
 
 @app.route('/')
@@ -51,6 +52,10 @@ def my_money():
     elif request.form['btn'] == 'zatwierdź':
         expenditure = request.form['expenditure']
         cost = request.form['cost']
+
+        current_money = base.total_funds()
+        if(expenditure == '' or cost == ''):
+            return render_template('index_base.html',expenditures=data, money=current_money, warning=warning3)
 
         current_money = base.total_funds()
         if(int(cost)>int(current_money)):

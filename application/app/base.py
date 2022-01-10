@@ -40,3 +40,16 @@ def total_funds():
 
     total_funds = total_incomes-total_expenses
     return total_funds
+
+def delete_expense(_id):
+    query_result = Expenses.query.filter_by(id=_id).delete()
+    db.session.commit()
+    db.session.remove()
+    return True
+
+def get_expanses():
+    data = []
+    for x in base.Expenses.query.all():
+        expenditureDict = dict(id=x.id, name=x.name, value=x.value)
+        data.append(expenditureDict)
+    return data

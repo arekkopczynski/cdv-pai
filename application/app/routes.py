@@ -74,20 +74,4 @@ def my_money():
 
 @app.route('/<int:id>', methods=['POST', 'GET'])
 def remove(id):
-    # pobrac element z tym id i usunąć go z bazy danych
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    return str(id)

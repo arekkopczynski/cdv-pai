@@ -8,25 +8,12 @@ emptyWarning = " "
 
 @app.route('/')
 def index_base():
-
-    #Get data from Database
-    data = []
-    for x in base.Expenses.query.all():
-        expenditureDict = dict(id=x.id, name=x.name, value=x.value)
-        data.append(expenditureDict)
-
-    return render_template('index_base.html', expenditures=data, money=base.total_funds(), warning=emptyWarning)
+    return render_template('index_base.html', expenditures=base.get_expanses(), money=base.total_funds(), warning=emptyWarning)
 
 # money=base.total_funds()
 @app.route('/', methods=['POST'])
 def my_money():
     global money
-
-    #Get data from Database
-    data = []
-    for x in base.Expenses.query.all():
-        expenditureDict = dict(id=x.id, name=x.name, value=x.value)
-        data.append(expenditureDict)
 
     if request.form['btn'] == 'Dodaj':
         moneey = request.form['money']
@@ -38,7 +25,7 @@ def my_money():
             base.db.session.remove()
 
             # No money to add but add button clicked
-            return render_template('index_base.html',expenditures=data, money=base.total_funds(), warning=warning2)
+            return render_template('index_base.html',expenditures=base.get_expanses(), money=base.total_funds(), warning=warning2)
         # Adding money to pocket
         else:
 
@@ -47,7 +34,7 @@ def my_money():
             base.db.session.commit()
             base.db.session.remove()
 
-            return render_template('index_base.html',expenditures=data, money=base.total_funds())
+            return render_template('index_base.html',expenditures=base.get_expanses(), money=base.total_funds())
     # Adding expenses
     elif request.form['btn'] == 'zatwierdź':
         expenditure = request.form['expenditure']
@@ -59,7 +46,7 @@ def my_money():
 
         current_money = base.total_funds()
         if(int(cost)>int(current_money)):
-            return render_template('index_base.html',expenditures=data, money=current_money, warning=warning)
+            return render_template('index_base.html',expenditures=base.get_expanses(), money=current_money, warning=warning)
 
         # Adding normal expenses
         else:
@@ -76,8 +63,12 @@ def my_money():
                 data.append(expenditureDict)
 
             current_money -= int(cost)
-            return render_template('index_base.html',expenditures=data, money=current_money)
+            return render_template('index_base.html',expenditures=base.get_expanses(), money=current_money)
 
 @app.route('/<int:id>', methods=['POST', 'GET'])
 def remove(id):
-    return str(id)
+
+    if(base.delete_expense(id)):
+        return render_template('index_base.html', expenditures=base.get_expanses(), money=base.total_funds(), warning=emptyWarning)
+    else:
+        return render_template('index_base.html', expenditures=base.get_expanses())

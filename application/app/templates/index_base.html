@@ -46,28 +46,16 @@
     </thead>
     {% for data in expenditures %}
     <tr>
-      <td>{{data.id}}</td>
+      <td>{{data.id}} </td>
       <td>{{data.name}}</td>
-      <td>{{data.value}}</td>
+      <td>{{data.value}} zł</td>
+      <td>
+        <form method="post" action="{{ url_for('remove', id=data.id) }}">
+          <button type="submit">Usuń</button>
+        </form>
+      </td>
     </tr>
     {% endfor %}
-    <!-- {% for expenditure in expenditures %}
-    <tr>
-      
-      {% for value in expenditure %}
-      {% if loop.index%3==0 %}
-      <td>{{value | string + " zł"}}</td>
-      {% else %}
-      <td>{{value}}</td>
-      {% endif %}
-      {% endfor %}
-      <td><a><button>x</button></a></td>
-    </tr>
-    {% endfor %} -->
-    
   </table>
 </div>
-
-
-
 {% endblock %}

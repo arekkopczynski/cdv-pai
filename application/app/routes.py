@@ -72,15 +72,10 @@ def my_money():
             money -= int(cost)
             return render_template('index_base.html',expenditures=data, money=money)
 
-# @app.route('/delete/<int:id>', methods=['POST'])
-# def remove_row(id):
-#     tak = Expenses.query.get_or404(id)
-#     try:
-#         db.session.delete(tak)
-#         db.session.commit()
-#         return render_template('index_base.html',expenditures=data, money=money)
-#     except:
-#         flask("asdsa")
+@app.route('/<int:id>', methods=['POST', 'GET'])
+def remove(id):
+    # pobrac element z tym id i usunąć go z bazy danych
+   
 
 
 

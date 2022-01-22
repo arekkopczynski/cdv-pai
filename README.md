@@ -1,6 +1,21 @@
 # cdv-pai
 
-## Instalacja
+# Uruchomienie - Docker
+
+Budowanie obrazu - z poziomu głownego katalogu
+```
+docker build --tag cdv-pai .
+```
+
+Uruchomienie z obrazu
+```
+docker run -p 5000:5000 -d cdv-pai
+```
+Aplikacja nasłuchuje na porcie 5000
+
+## Instalacja lokalna
+
+Aplikację można uruchomić rownież z poziomu lokalnej maszyny.
 
 Linux
 1. Wejść do katalogu application
@@ -12,7 +27,7 @@ Windows
 2. python -m venv venv
 3. pip install flask Flask-SQLAlchemy
 
-## Uruchomienie
+## Uruchomienie lokalne
 Linux
 1. W konsoli wejść do katalogu application
 2. virtualenv .venv
@@ -24,18 +39,7 @@ Windows
 2. .\venv\Scripts\activate
 3. flask run
 
-Co trzeba jeszcze zrobic:
-1. podłączyć z bazą danych (zrobiłem)
-2. po dodaniu nowego wydatku saldo portfela musi sie zmniejszyc (zrobilem)
-3. moze dac jakis warunek który sprawdza czy inputy nie są puste
-4. dodac mozliwosc usuwania wydatkow
-5. sprawdzenie czy nie ma za malo pieniedzy podczas dodawania wydaktu
-6. zablokowanie dodania ujemnych pieniedzy (zrobilem)
-7. ostrzezenia po odswiezeniu strony nie znikaja
-8. spakować aplikację w kontener
-9. dopracować dokumentację
-
-Można rozwijać o:
+# Możliwości rozwoju
 1. Dodawanie nazwy dodawanego przychodu
 2. Dodanie tabeli z wyświetlaniem, usuwaniem i edycją przychodów
 
